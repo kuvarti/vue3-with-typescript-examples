@@ -1,4 +1,5 @@
 import { createStore } from "vuex"
+import deneme from "./components/mainlist"
 
 const store = createStore({
 	state : {
@@ -7,7 +8,9 @@ const store = createStore({
 			age : 23,
 		},
 		theme: "dark",
-		myarr: [1, 2, 3, 4, 5]
+	},
+	modules : {
+		list: deneme
 	},
 	getters : {
 		getTheme(state): string {

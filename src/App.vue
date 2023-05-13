@@ -14,10 +14,7 @@ import adding from "@/components/addSection"
 import showing from "@/components/showList"
 export default {
 	mounted() {
-		axios.get('http://localhost:3000/myList').then(deger => {
-			this.todoList.todos = deger.data || [{id : 0, text : 'DB request Fail!'}];
-			console.log(" this todos : ", this.todoList.todos)
-		});
+		
 		this.$store.commit("setTheme", "Yellow")
 		console.log("value from getter : ", this.$store.getters.getTheme)
 		this.$store.dispatch("setTheme", "selam")
@@ -51,20 +48,13 @@ export default {
 			})
 		},
 		addTodo(event) {
-			console.log("addTodo()", event)
-			this.todoList.todos.push({
-				id: new Date().getTime(),
-				text: event
-			});
-			axios.post('http://localhost:3000/myList', {
-				id: new Date().getTime(),
-				text: event
-			}).then(deger => { console.log(deger); })
+			console.log("addTodo()", this.$store.dispatch("pushItem", event))
 		}
 	},
 	computed: {
 		todocount() {
-			return this.todoList.todos.length;
+			return this.$store.getters["_todol"];
+			//this.todoList.todos.length;
 		}
 	}
 }

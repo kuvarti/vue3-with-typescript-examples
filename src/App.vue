@@ -9,12 +9,11 @@
 </template>
 
 <script>
-import axios from 'axios' 
 import adding from "@/components/addSection"
 import showing from "@/components/showList"
 export default {
 	mounted() {
-		
+		this.$store.dispatch("loadItems")
 		this.$store.commit("setTheme", "Yellow")
 		console.log("value from getter : ", this.$store.getters.getTheme)
 		this.$store.dispatch("setTheme", "selam")
@@ -41,11 +40,7 @@ export default {
 	},
 	methods: {
 		dellTodo(item) {
-			console.log("dellTodo()", item);
-			axios.delete(`http://localhost:3000/myList/${item}`).then(deger => {
-				this.todoList.todos = this.todoList.todos.filter(todo => todo.id !== item);
-				console.log(deger);
-			})
+			console.log("dellTodo()", this.$store.dispatch("deleteItem", item));
 		},
 		addTodo(event) {
 			console.log("addTodo()", this.$store.dispatch("pushItem", event))

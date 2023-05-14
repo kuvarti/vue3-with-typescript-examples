@@ -23,10 +23,9 @@ const store = createStore({
 		}
 	},
 	actions : {//async olarak islem yapar
-		setTheme(context, item) {
-			console.log(context, " <=>", item)
+		setTheme(context, item: string) {
 			setTimeout(() => {
-				context.commit("setTheme", "Pink")
+				context.commit("setTheme", item)
 			}, 2000);
 		}
 	}

@@ -6,6 +6,9 @@
 			<router-view @odd-event="asd = $event">
 			</router-view>
 		</div>
+		<teleport to="#teleport">
+			<teleported />
+		</teleport>
 	</div>
 </template>
 
@@ -21,11 +24,13 @@ import { useRoute } from "vue-router";
 import navmenu from "./components/Navbar.vue";
 import mtimer from "./components/timercontent.vue";
 import bhilmi from "./components/BuyukHilmi.vue";
+import teleported from "./components/namespace.vue"
 export default {
 	components : {
 		navmenu,
 		mtimer,
-		bhilmi
+		bhilmi,
+		teleported
 	},
 	setup(){
 		//const title = ref("Bir Kadin cizeceksiiin");

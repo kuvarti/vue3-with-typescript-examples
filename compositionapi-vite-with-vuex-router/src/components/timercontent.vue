@@ -24,7 +24,7 @@
 import {ref, watchEffect} from 'vue'
 export default {
 	setup() {
-		let	starttime:number = 0;
+		let	starttime:number = 1;
 		let	process = ref(false);
 		const displaytime = ref(0)
 		function starttimer() {

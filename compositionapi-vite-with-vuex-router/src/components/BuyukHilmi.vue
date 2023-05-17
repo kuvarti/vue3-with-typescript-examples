@@ -16,7 +16,7 @@
 import { onErrorCaptured, ref, defineAsyncComponent} from "@vue/runtime-core"
 
 const err = ref(null);
-const Todos = defineAsyncComponent(() => import('./todos.vue'))
+const Todos = defineAsyncComponent(() => import('./todos.vue'));
 onErrorCaptured((e) => {
 	err.value = e;
 	return true;

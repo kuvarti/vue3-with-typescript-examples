@@ -12,6 +12,11 @@ import {ref, onMounted} from "vue"
 
 const todoList = ref([])
 fetch("https://jsonplaceholder.typicode.com/todos")
-	.then((response) => response.json())
-	.then((json) => todoList.value = json);
+	.then((response) => {
+		if (response.ok)
+			return response.json()
+		throw new Error('Link error!!');
+		
+	})
+	.then((json) => todoList.value = json)
 </script>

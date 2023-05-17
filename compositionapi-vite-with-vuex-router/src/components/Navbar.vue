@@ -1,5 +1,5 @@
 <template>
-	<div class="topbar" :class="{redbg: !bgclr}">
+	<div class="topbar" :class="{redbg: bgclr === false}">
 		<button @click="$router.push('/')" class="btn-sm btn csbtn">
 			Husnu
 		</button>
@@ -36,7 +36,7 @@
 </style>
 
 <script setup lang="ts">
-import { defineProps, onUnmounted } from 'vue'
+import { onUnmounted } from 'vue'
 const props = defineProps({ bgclr: Boolean});
 
 </script>

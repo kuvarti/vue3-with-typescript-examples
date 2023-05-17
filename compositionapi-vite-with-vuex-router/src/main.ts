@@ -2,9 +2,11 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import store from './global/globalVars'
 import Rota from './route'
 
-const app = createApp(App)
+const app = createApp(App);
 app.use(Rota);
-app.config.globalProperties.$router = Rota
-app.mount('#app')
+app.use(store);
+app.config.globalProperties.$router = Rota;
+app.mount('#app');
